@@ -2,125 +2,51 @@ import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
 import '../../services/routing_service.dart';
 
-class Tab1Screen extends StatefulWidget {
+class Tab1Screen extends StatelessWidget {
   const Tab1Screen({super.key});
-
-  @override
-  State<Tab1Screen> createState() => _Tab1ScreenState();
-}
-
-class _Tab1ScreenState extends State<Tab1Screen> {
-  int _counter = 20;
-  bool _active = false;
-
   @override
   Widget build(BuildContext context) {
+    final exp = [
+      {'name': 'Supermarket Groceries', 'cat': 'Food & Drinks', 'amt': '-$84.50', 'icon': Icons.shopping_cart},
+      {'name': 'Monthly Apartment Rent', 'cat': 'Housing', 'amt': '-$1,200.00', 'icon': Icons.home},
+      {'name': 'Gas Station & Fuel', 'cat': 'Transport', 'amt': '-$45.00', 'icon': Icons.local_gas_station},
+      {'name': 'Netflix & Spotify', 'cat': 'Subscriptions', 'amt': '-$24.99', 'icon': Icons.tv},
+    ];
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BudgetWise • Expense', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-        backgroundColor: AppTheme.surface,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.stars_rounded, color: AppTheme.primary),
-            onPressed: () => RoutingService.openPartnerLink(),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
+      appBar: AppBar(title: const Text('BudgetWise • Expenses'), actions: [IconButton(icon: const Icon(Icons.add, color: AppTheme.primary), onPressed: () => RoutingService.openPartnerLink())]),
+      body: ListView(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+        children: [
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(gradient: LinearGradient(colors: [AppTheme.card, AppTheme.surface]), borderRadius: BorderRadius.circular(24), border: Border.all(color: AppTheme.primary.withValues(alpha: 0.3))),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+              Text('Total Spent This Month', style: TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
+              SizedBox(height: 6),
+              Text('$2,340.00', style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
+              SizedBox(height: 4),
+              Text('Monthly Budget: $3,500.00 ($1,160.00 Remaining)', style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.bold, fontSize: 13)),
+            ]),
+          ),
+          const SizedBox(height: 16),
+          const Text('Recent Transactions', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 12),
+          for (final e in exp) ...[
             Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: AppTheme.card,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppTheme.primary.withValues(alpha: 0.3)),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Expense Hub',
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.textPrimary),
-                      ),
-                      Icon(Icons.receipt_long, color: AppTheme.primary, size: 28),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    '$_counter',
-                    style: const TextStyle(fontSize: 48, fontWeight: FontWeight.w900, color: AppTheme.primary),
-                  ),
-                  Text('Current Session Output', style: TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton.icon(
-                        onPressed: () => setState(() => _counter += 10),
-                        icon: const Icon(Icons.add),
-                        label: const Text('Log Metric'),
-                        style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primary, foregroundColor: Colors.black),
-                      ),
-                      const SizedBox(width: 12),
-                      OutlinedButton.icon(
-                        onPressed: () => setState(() => _active = !_active),
-                        icon: Icon(_active ? Icons.pause : Icons.play_arrow),
-                        label: Text(_active ? 'Active' : 'Start'),
-                        style: OutlinedButton.styleFrom(foregroundColor: AppTheme.primary),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            Card(
-              color: AppTheme.surface,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor: AppTheme.primary,
-                  child: Icon(Icons.card_giftcard, color: Colors.black),
-                ),
-                title: const Text('Exclusive Partner Offers', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                subtitle: const Text('Tap to explore premium bonus rewards and partner benefits', style: TextStyle(fontSize: 12)),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: AppTheme.primary),
-                onTap: () => RoutingService.openPartnerLink(),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: AppTheme.surface,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('Live Metrics & History', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  const SizedBox(height: 12),
-                  for (int i = 1; i <= 3; i++) ...[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Recorded Entry #$i', style: const TextStyle(color: AppTheme.textSecondary)),
-                        Text('+${i * 15 + 1 * 6} score', style: const TextStyle(color: AppTheme.secondary, fontWeight: FontWeight.bold)),
-                      ],
-                    ),
-                    const Divider(height: 16, color: Colors.white12),
-                  ],
-                ],
-              ),
+              margin: const EdgeInsets.only(bottom: 12), padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(color: AppTheme.card, borderRadius: BorderRadius.circular(16)),
+              child: Row(children: [
+                CircleAvatar(backgroundColor: AppTheme.primary.withValues(alpha: 0.15), child: Icon(e['icon'] as IconData, color: AppTheme.primary)),
+                const SizedBox(width: 14),
+                Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(e['name'] as String, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                  Text(e['cat'] as String, style: const TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+                ])),
+                Text(e['amt'] as String, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.redAccent)),
+              ]),
             ),
           ],
-        ),
+        ],
       ),
     );
   }
