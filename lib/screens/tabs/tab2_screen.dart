@@ -12,10 +12,10 @@ class Tab2Screen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           for (final c in [
-            {'cat': 'Housing', 'val': '$1,200 / $1,200 (100%)', 'pct': 1.0, 'col': Colors.redAccent},
-            {'cat': 'Food & Dining', 'val': '$450 / $600 (75%)', 'pct': 0.75, 'col': AppTheme.primary},
-            {'cat': 'Transport', 'val': '$180 / $250 (72%)', 'pct': 0.72, 'col': Colors.cyan},
-            {'cat': 'Entertainment', 'val': '$120 / $200 (60%)', 'pct': 0.60, 'col': Colors.amber},
+            {'cat': 'Housing', 'val': '\$1,200 / \$1,200 (100%)', 'pct': 1.0, 'col': Colors.redAccent},
+            {'cat': 'Food & Dining', 'val': '\$450 / \$600 (75%)', 'pct': 0.75, 'col': AppTheme.primary},
+            {'cat': 'Transport', 'val': '\$180 / \$250 (72%)', 'pct': 0.72, 'col': Colors.cyan},
+            {'cat': 'Entertainment', 'val': '\$120 / \$200 (60%)', 'pct': 0.60, 'col': Colors.amber},
           ]) ...[
             Container(
               margin: const EdgeInsets.only(bottom: 12), padding: const EdgeInsets.all(16),

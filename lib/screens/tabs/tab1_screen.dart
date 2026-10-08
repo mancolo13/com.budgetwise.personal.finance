@@ -7,10 +7,10 @@ class Tab1Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final exp = [
-      {'name': 'Supermarket Groceries', 'cat': 'Food & Drinks', 'amt': '-$84.50', 'icon': Icons.shopping_cart},
-      {'name': 'Monthly Apartment Rent', 'cat': 'Housing', 'amt': '-$1,200.00', 'icon': Icons.home},
-      {'name': 'Gas Station & Fuel', 'cat': 'Transport', 'amt': '-$45.00', 'icon': Icons.local_gas_station},
-      {'name': 'Netflix & Spotify', 'cat': 'Subscriptions', 'amt': '-$24.99', 'icon': Icons.tv},
+      {'name': 'Supermarket Groceries', 'cat': 'Food & Drinks', 'amt': '-\$84.50', 'icon': Icons.shopping_cart},
+      {'name': 'Monthly Apartment Rent', 'cat': 'Housing', 'amt': '-\$1,200.00', 'icon': Icons.home},
+      {'name': 'Gas Station & Fuel', 'cat': 'Transport', 'amt': '-\$45.00', 'icon': Icons.local_gas_station},
+      {'name': 'Netflix & Spotify', 'cat': 'Subscriptions', 'amt': '-\$24.99', 'icon': Icons.tv},
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('BudgetWise • Expenses'), actions: [IconButton(icon: const Icon(Icons.add, color: AppTheme.primary), onPressed: () => RoutingService.openPartnerLink())]),
@@ -23,9 +23,9 @@ class Tab1Screen extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
               Text('Total Spent This Month', style: TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
               SizedBox(height: 6),
-              Text('$2,340.00', style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
+              Text('\$2,340.00', style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
               SizedBox(height: 4),
-              Text('Monthly Budget: $3,500.00 ($1,160.00 Remaining)', style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.bold, fontSize: 13)),
+              Text('Monthly Budget: \$3,500.00 (\$1,160.00 Remaining)', style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.bold, fontSize: 13)),
             ]),
           ),
           const SizedBox(height: 16),

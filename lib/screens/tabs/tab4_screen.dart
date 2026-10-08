@@ -12,9 +12,9 @@ class Tab4Screen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           for (final g in [
-            {'goal': 'Emergency Fund', 'cur': '$8,500 / $10,000 (85%)', 'pct': 0.85},
-            {'goal': 'Vacation Summer Trip', 'cur': '$1,600 / $2,000 (80%)', 'pct': 0.80},
-            {'goal': 'New Laptop Setup', 'cur': '$900 / $1,200 (75%)', 'pct': 0.75},
+            {'goal': 'Emergency Fund', 'cur': '\$8,500 / \$10,000 (85%)', 'pct': 0.85},
+            {'goal': 'Vacation Summer Trip', 'cur': '\$1,600 / \$2,000 (80%)', 'pct': 0.80},
+            {'goal': 'New Laptop Setup', 'cur': '\$900 / \$1,200 (75%)', 'pct': 0.75},
           ]) ...[
             Container(
               margin: const EdgeInsets.only(bottom: 12), padding: const EdgeInsets.all(16),

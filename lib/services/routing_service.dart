@@ -12,7 +12,7 @@ class RoutingService {
       }
       return false;
     } catch (e) {
-      developer.log('Error opening partner URL: $e', name: 'RoutingService');
+      developer.log('Error opening partner URL: \$e', name: 'RoutingService');
       return false;
     }
   }
